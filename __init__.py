@@ -34,11 +34,6 @@ def mongraphique():
 @app.route("/histogramme/")
 def monhistogramme():
     return render_template("histogramme.html")
-
-from flask import Flask, render_template, request, redirect, url_for
-
-app = Flask(__name__)
-
 @app.route("/contact/")
 def contact():
     return render_template("contact.html")
@@ -56,10 +51,6 @@ def send_message():
     print(f"Message reçu de {first_name} {last_name}: {message}")
 
     return redirect(url_for('contact'))
-
-if __name__ == "__main__":
-    app.run(debug=True)
-
 
 if __name__ == "__main__":
   app.run(debug=True)
