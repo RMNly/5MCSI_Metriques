@@ -53,5 +53,9 @@ def send_message():
 
     return redirect(url_for('contact'))
 
+@app.route("/commits/")
+def MonAPI():
+    return render_template('commits.html')
+  
 if __name__ == "__main__":
   app.run(debug=True)
