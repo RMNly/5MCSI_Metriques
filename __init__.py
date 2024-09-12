@@ -34,6 +34,32 @@ def mongraphique():
 @app.route("/histogramme/")
 def monhistogramme():
     return render_template("histogramme.html")
-  
+
+from flask import Flask, render_template, request, redirect, url_for
+
+app = Flask(__name__)
+
+@app.route("/contact/")
+def contact():
+    return render_template("contact.html")
+
+@app.route("/send_message/", methods=["POST"])
+def send_message():
+    first_name = request.form.get("first_name")
+    last_name = request.form.get("last_name")
+    message = request.form.get("message")
+    
+    # Vous pouvez ici traiter le message ou l'envoyer par email.
+    # Pour cet exemple, nous redirigeons simplement l'utilisateur vers la page de contact avec un message de confirmation.
+    
+    # Note: Pour un vrai site, vous devriez valider et traiter les données du formulaire.
+    print(f"Message reçu de {first_name} {last_name}: {message}")
+
+    return redirect(url_for('contact'))
+
+if __name__ == "__main__":
+    app.run(debug=True)
+
+
 if __name__ == "__main__":
   app.run(debug=True)
