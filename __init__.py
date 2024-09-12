@@ -34,9 +34,10 @@ def mongraphique():
 @app.route("/histogramme/")
 def monhistogramme():
     return render_template("histogramme.html")
+  
 @app.route("/contact/")
 def contact():
-    return render_template("contact.html")
+    return render_template("Contact.html")
 
 @app.route("/send_message/", methods=["POST"])
 def send_message():
